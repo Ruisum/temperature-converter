@@ -4,13 +4,16 @@ program.version('0.0.1');
 
 program.command('ftoc')
     .description('Converts a fahrenheit temperature into celsius')
-    .action(FTemperature => {
-        console.log(typeof FTemperature);
-        console.log(fahrenheitToCelsius(FTemperature))
+    .argument('[temperature]', 'Temperature in fahrenheit to be converted to celsius')
+    .action(temperature => {
+        console.log(temperature + ' fahrenheit is ' + fahrenheitToCelsius(temperature) + ' celsius');
     });
 
 program.command('ctof')
     .description('Converts a celsius temperature into fahrenheit')
-    .action(celsiusToFahrenheit);
+    .argument('[temperature]', 'Temperature in celsius to be converted to fahrenheit')
+    .action(temperature => {
+        console.log(temperature + ' celsius is ' + fahrenheitToCelsius(temperature) + ' fahrenheit');
+    });
 
 program.parse(process.argv);
