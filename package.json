@@ -1,0 +1,16 @@
+{
+  "name": "tempertureconverter",
+  "version": "1.0.0",
+  "description": "Converts Celsius into Fahrenheit and vice versa using the commander package and unit tested with jest.",
+  "main": "index.js",
+  "dependencies": {
+    "commander": "^8.3.0",
+    "jest": "^27.4.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
