@@ -1,11 +1,16 @@
-const celsiusToFahrenheit = CTemperature => {
-    const FTemperature = CTemperature * 1.8 + 32;
-    return Math.round(FTemperature);
-};
+const { celsiusToFahrenheit, fahrenheitToCelsius } = require('../src/converter');
+const { program } = require('commander');
+program.version('0.0.1');
 
-const fahrenheitToCelsius = FTemperature => {
-    const CTemperature = (FTemperature - 32) / 1.8;
-    return Math.round(CTemperature);
-};
+program.command('ftoc')
+    .description('Converts a fahrenheit temperature into celsius')
+    .action(FTemperature => {
+        console.log(typeof FTemperature);
+        console.log(fahrenheitToCelsius(FTemperature))
+    });
 
-module.exports = {celsiusToFahrenheit, fahrenheitToCelsius};
+program.command('ctof')
+    .description('Converts a celsius temperature into fahrenheit')
+    .action(celsiusToFahrenheit);
+
+program.parse(process.argv);

@@ -1,4 +1,4 @@
-const { celsiusToFahrenheit, fahrenheitToCelsius } = require('../src/index');
+const { celsiusToFahrenheit, fahrenheitToCelsius } = require('../src/converter');
 
 describe("Celsius to Fahrenheit", () => {
     test("30 celsius is 86 fahrenheit", () => {
@@ -11,6 +11,14 @@ describe("Celsius to Fahrenheit", () => {
     
     test("100 celsius is 212", () => {
         expect(celsiusToFahrenheit(100)).toBe(212);
+    });
+
+    test("String input throws an error", () => {
+        expect(() => celsiusToFahrenheit('test')).toThrow(new Error('Temperature is not a number'));
+    });
+
+    test("Object throws an error", () => {
+        expect(() => celsiusToFahrenheit({})).toThrow(new Error('Temperature is not a number'));
     });
 });
 
@@ -25,5 +33,13 @@ describe("Fahrenheit to Celsius", () => {
 
     test("200 fahrenheit is 93 celsius", () => {
         expect(fahrenheitToCelsius(200)).toBe(93);
+    });
+
+    test("String input throws an error", () => {
+        expect(() => fahrenheitToCelsius('test')).toThrow(new Error('Temperature is not a number'));
+    });
+
+    test("Object throws an error", () => {
+        expect(() => fahrenheitToCelsius({})).toThrow(new Error('Temperature is not a number'));
     });
 });
